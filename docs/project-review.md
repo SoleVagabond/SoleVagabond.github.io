@@ -24,7 +24,9 @@ Incident notification delivery now adds a durable outbox, stable opening/escalat
 
 The [notification recording](https://github.com/SoleVagabond/sentinel-node/blob/main/docs/evidence/notification-delivery.json) retains six actual loopback stages: healthy baseline, unavailable receiver, restored receiver, a saved notification with a lost reply, the matching retry, and recovery. Its final five unique notifications come from six accepted requests. The portfolio's table is derived from that unchanged source record, and its browser check compares every displayed count and the downloaded evidence with the original.
 
-Evidence: [90 checks passed](https://github.com/SoleVagabond/sentinel-node/actions/runs/37179009669): 45 Python, 10 frontend, four packaged-SDK contracts, 30 browser scenarios, and one mocked infrastructure scenario. The independently regenerated notification recording also passed its actual HTTP assertions. See the [verification record](https://github.com/SoleVagabond/sentinel-node/blob/main/docs/validation.md).
+The notification panel now confirms each receiver setting, explains empty and not-yet-due retries, and sends an explicit test message without altering service health. The latest test result follows its eventual acknowledgement. Local file reads and writes are serialized to avoid Windows replacement conflicts, and a failed background check retries on the next tick rather than terminating the loop.
+
+Evidence: [99 checks passed](https://github.com/SoleVagabond/sentinel-node/actions/runs/37180161026): 48 Python, 10 frontend, four packaged-SDK contracts, 36 browser scenarios, and one mocked infrastructure scenario. The independently regenerated notification recording also passed its actual HTTP assertions. See the [verification record](https://github.com/SoleVagabond/sentinel-node/blob/main/docs/validation.md).
 
 Live AWS operation remains unverified. The current project establishes local behavior and checked infrastructure configuration, without claiming production uptime or deployed monitoring experience. Actual cloud permissions, scheduled execution, delivery, and controlled outage/recovery remain a separate release gate.
 

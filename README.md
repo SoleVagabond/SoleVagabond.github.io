@@ -2,6 +2,8 @@
 
 A personal portfolio for web applications, automation, and systems.
 
+[Project review and verification boundaries](docs/project-review.md) explains the strengths, recent corrections, and remaining development work across the two applications and this portfolio.
+
 [Live portfolio](https://solevagabond.github.io/) · [Northline Cycle](https://github.com/SoleVagabond/northline-cycle) · [SentinelNode](https://github.com/SoleVagabond/sentinel-node)
 
 The original static site uses semantic HTML, responsive CSS, and a small progressively enhanced screenshot gallery. Native project disclosures, navigation and evidence links work without JavaScript. All featured screenshots come from the actual project applications. The two featured projects are self-directed work; Northline is a fictional workshop and Sentinel’s live AWS operation remains unverified.

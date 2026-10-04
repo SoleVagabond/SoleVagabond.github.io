@@ -19,7 +19,7 @@ test("work, contact and source links lead to the actual projects", async ({
     page.getByRole("link", { name: "Run Sentinel" }),
   ).toHaveAttribute(
     "href",
-    "https://github.com/SoleVagabond/sentinel-node#run-your-own-workspace",
+    "https://github.com/SoleVagabond/sentinel-node/releases/tag/v1.0.0",
   );
   await page
     .getByRole("link", { name: "Contact", exact: false })

@@ -44,4 +44,6 @@ The homepage now reflects the expanded application evidence. The shared telemetr
 
 The single-operator application has a defined 1.0 workflow and a separate easy demonstration. The portfolio links its run instructions and guide while retaining the original lab screenshots and evidence. Cloud integration remains a separate operating decision: Lambda continues to run its existing telemetry-only path. An independent monitor-heartbeat alert also remains outside this release.
 
+The versioned 1.0.0 download adds a Windows launcher, a short first-service guide, and program/archive checksums. Its package uses an explicit five-file allowlist and records its source commit. GitHub attaches downloads only after the tag's application, browser, and infrastructure jobs pass. The homepage's Run Sentinel action opens that release.
+
 Teams and Internet-facing accounts should follow defined user and operating requirements. They are not required for this private monitoring app. Present it as a tested application with a bounded scope and controlled local verification, without claiming customer adoption or cloud uptime.

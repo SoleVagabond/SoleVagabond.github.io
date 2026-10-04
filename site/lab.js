@@ -370,6 +370,7 @@
     }
   });
   window.addEventListener("hashchange", () => {
+    if (location.hash === "#main") return;
     state = readState();
     $("share-status").textContent = "";
     render();

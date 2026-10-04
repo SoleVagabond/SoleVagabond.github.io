@@ -110,6 +110,11 @@ test("architecture trace is keyboard accessible, shareable and grounded in sourc
   await expect(
     page.getByRole("heading", { name: "Progress follows the rules." }),
   ).toBeVisible();
+  await page.getByRole("link", { name: "Skip to content" }).focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#main")).toBeFocused();
+  await expect(stage).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator("#northline-panel")).toBeVisible();
   await page.getByRole("button", { name: "Copy a link to this state" }).click();
   await expect(page.locator("#share-status")).toContainText(
     /Link copied|Copy the selected link/,

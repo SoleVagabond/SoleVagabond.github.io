@@ -1,0 +1,16 @@
+{
+  "name": "devin-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Selected work in web applications, automation, and systems.",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0"
+  }
+}

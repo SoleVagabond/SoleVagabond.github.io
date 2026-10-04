@@ -2,6 +2,33 @@ const { test, expect } = require("@playwright/test");
 const AxeBuilder = require("@axe-core/playwright").default;
 const fs = require("node:fs");
 
+test("notification evidence agrees with the original receipts and downloads unchanged", async ({ page }, testInfo) => {
+  await page.goto('/lab.html#sentinel/recovered/0');
+  const original = JSON.parse(fs.readFileSync('site/assets/notification-delivery.json', 'utf8'));
+  const rows = page.locator('#notification-evidence-table tbody tr');
+  await expect(rows).toHaveCount(original.steps.length);
+  for (let index = 0; index < original.steps.length; index++) {
+    const data = original.steps[index].notifications;
+    await expect(rows.nth(index).locator('td')).toHaveText([
+      String(data.summary.pending), String(data.summary.delivered),
+      `${data.receipts.length} / ${data.receipts.reduce((total, row) => total + row.requests, 0)}`
+    ]);
+  }
+  const lost = original.steps.find(step => step.step === 'accepted-with-lost-reply').notifications;
+  const retried = original.steps.find(step => step.step === 'same-reference-retried').notifications;
+  const id = lost.deliveries.at(-1).event.id;
+  const receipt = retried.receipts.filter(row => row.event.id === id);
+  expect(receipt).toHaveLength(1);
+  expect(receipt[0].requests).toBe(2);
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByRole('link', { name: 'Download notification recording' }).click();
+  const download = await downloadPromise;
+  expect(JSON.parse(fs.readFileSync(await download.path(), 'utf8'))).toEqual(original);
+  await page.locator('#notification-evidence').screenshot({ path: testInfo.outputPath('notification-evidence.png') });
+  await page.getByRole('button', { name: '02 / Request trace', exact: true }).click();
+  await expect(page.locator('#notification-evidence')).toBeHidden();
+});
+
 test("recorded outage, lost signal and recovery retain distinct meanings", async ({
   page,
 }) => {

@@ -229,7 +229,7 @@
                 Know when a service fails.<br />And when the signal stops.
               </h3>
               <p class="project-intro">
-                HTTP monitoring with incident history and a separate signal for
+                HTTP monitoring with incident alerts, saved delivery history, and a separate signal for
                 telemetry freshness. Missing observations become unknown, so
                 yesterday’s green status can’t pass for today’s health.
               </p>
@@ -295,7 +295,7 @@
             <div>
               <span class="small-label">The workflow</span>
               <p>
-                Check → detect → record → recover. Keep service health separate
+                Check → detect → queue → notify → recover. Keep service health separate
                 from reporting freshness.
               </p>
             </div>
@@ -309,8 +309,8 @@
             <div>
               <span class="small-label">The evidence</span>
               <p>
-                55 checks across application behavior, browser flows, freshness
-                handling, and infrastructure configuration.
+                90 checks across incident delivery, application behavior, browser flows,
+                freshness handling, and infrastructure configuration.
               </p>
               <a
                 class="text-link"
@@ -330,7 +330,8 @@
                   The local lab controls real HTTP fixtures: healthy responses,
                   a slow service, an HTTP 503, and recovery. Aging an
                   observation demonstrates a stale reporting signal separately.
-                  Resolved incidents remain in the timeline.
+                  Resolved incidents remain in the timeline. A local notification receiver
+                  demonstrates failed delivery, saved retries, and a lost reply after acceptance.
                 </p>
               </div>
               <div>
@@ -353,7 +354,7 @@
                 class="text-link"
                 href="https://github.com/SoleVagabond/sentinel-node/blob/main/docs/evidence/local-incident-sequence.json"
                 >See the recorded sequence ↗</a
-              >
+              ><a class="text-link" href="lab.html#sentinel/recovered/0">See notification delivery evidence ↗</a>
             </div>
           </details>
         </article>

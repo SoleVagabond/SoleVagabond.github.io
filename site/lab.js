@@ -273,6 +273,7 @@
   }
   function render() {
     $("sentinel-panel").hidden = state.mode !== "sentinel";
+    $("notification-evidence").hidden = state.mode !== "sentinel";
     $("northline-panel").hidden = state.mode !== "northline";
     setPressed("[data-mode]", "mode", state.mode);
     if (state.mode === "sentinel" && recording) renderReplay();

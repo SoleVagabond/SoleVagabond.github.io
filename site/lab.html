@@ -212,6 +212,20 @@
           </div>
         </div>
       </section>
+      <section id="notification-evidence" class="lab-panel observation-card" aria-labelledby="notification-evidence-title">
+        <p class="eyebrow">SentinelNode / Recorded notification delivery</p>
+        <h2 id="notification-evidence-title">One notification. Two requests.</h2>
+        <p class="lab-description">A receiver can accept a notification and lose its reply. Sentinel retries the same reference; the receiver recognizes it. These six recorded steps used real loopback HTTP requests and real retry due times. They are separate from the incident replay above.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Recorded notification delivery counts">
+          <table id="notification-evidence-table">
+            <caption class="sr-only">Queued and acknowledged notifications at each recorded step. The last column compares unique receiver notifications with accepted requests.</caption>
+            <thead><tr><th scope="col">Recorded step</th><th scope="col">Queued</th><th scope="col">Acknowledged</th><th scope="col">Unique / Requests</th></tr></thead>
+            <tbody><tr><th scope="row">Healthy baseline</th><td>0</td><td>0</td><td>0 / 0</td></tr><tr><th scope="row">Receiver unavailable</th><td>3</td><td>0</td><td>0 / 0</td></tr><tr><th scope="row">Receiver restored</th><td>0</td><td>3</td><td>3 / 3</td></tr><tr><th scope="row">Reply lost after acceptance</th><td>1</td><td>3</td><td>4 / 4</td></tr><tr><th scope="row">Same reference retried</th><td>0</td><td>4</td><td>4 / 5</td></tr><tr><th scope="row">Confirmed recovery</th><td>0</td><td>5</td><td>5 / 6</td></tr></tbody>
+          </table>
+        </div>
+        <p class="small-note">Three events wait while the receiver is unavailable, even though services have recovered. The lost-reply retry then raises accepted requests from four to five while unique notifications stay at four. The final recovery is a fifth notification. Receiver acknowledgements do not establish email delivery or live AWS operation.</p>
+        <div class="detail-links"><a class="text-link" href="assets/notification-delivery.json" download>Download notification recording ↓</a><a class="text-link" href="https://github.com/SoleVagabond/sentinel-node/blob/main/docs/notifications.md">Run the delivery experiment ↗</a></div>
+      </section>
       <section
         id="northline-panel"
         class="lab-panel"

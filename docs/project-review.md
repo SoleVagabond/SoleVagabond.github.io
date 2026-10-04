@@ -16,7 +16,9 @@ The hosted 12-check smoke record remains separate from these local browser check
 
 ## SentinelNode
 
-The project demonstrates concurrent HTTP observations, incident transitions, and the difference between a service failure and a monitor that stopped reporting. The local lab is an actual HTTP experiment; the public portfolio lab replays its recorded observations.
+The project now includes a working single-operator application for a computer or server. Its workflow covers service configuration, scheduled/manual checks, incident acknowledgement and notes, confirmed recovery, optional webhook delivery, history exports, and database backups/restoration. Live mode starts empty; its separate demonstration uses real loopback services. The public portfolio lab remains a recorded replay.
+
+SQLite commits completed observations, incident transitions, and newly queued notifications together. A process lock prevents competing writers, configuration revisions reject stale edits, and local host/origin/session guards protect mutations. The portable Python archive includes the dashboard and requires no runtime packages. It is a private operator workspace, without hosted accounts, team roles, or installed process supervision.
 
 The review found two concrete display errors around separately written history. Malformed optional history could hide valid current health. A newer history write could also appear beside an older completed status snapshot. History now validates independently and excludes samples newer than the displayed snapshot. It does not mutate the underlying evidence or claim the two writes are transactional.
 
@@ -26,7 +28,7 @@ The [notification recording](https://github.com/SoleVagabond/sentinel-node/blob/
 
 The notification panel now confirms each receiver setting, explains empty and not-yet-due retries, and sends an explicit test message without altering service health. The latest test result follows its eventual acknowledgement. Local file reads and writes are serialized to avoid Windows replacement conflicts, and a failed background check retries on the next tick rather than terminating the loop.
 
-Evidence: [99 checks passed](https://github.com/SoleVagabond/sentinel-node/actions/runs/37180161026): 48 Python, 10 frontend, four packaged-SDK contracts, 36 browser scenarios, and one mocked infrastructure scenario. The independently regenerated notification recording also passed its actual HTTP assertions. See the [verification record](https://github.com/SoleVagabond/sentinel-node/blob/main/docs/validation.md).
+Evidence: [137 checks passed](https://github.com/SoleVagabond/sentinel-node/actions/runs/37183702034): 65 Python, 10 frontend, four packaged-SDK contracts, 57 browser scenarios, and one mocked infrastructure scenario. Application checks include same-directory restart, transactional rollback, backup restoration, empty live onboarding, and an archive that actually serves its dashboard. Browser workflows cover service configuration, incident notes, failed-delivery replay, downloads, and all six workspaces at three sizes. The first run found a history table without keyboard access on phones; the passing suite now verifies arrow-key scrolling. The independently regenerated original notification recording remains unchanged. See the [verification record](https://github.com/SoleVagabond/sentinel-node/blob/main/docs/validation.md).
 
 Live AWS operation remains unverified. The current project establishes local behavior and checked infrastructure configuration, without claiming production uptime or deployed monitoring experience. Actual cloud permissions, scheduled execution, delivery, and controlled outage/recovery remain a separate release gate.
 
@@ -38,6 +40,6 @@ The homepage now reflects the expanded application evidence. The shared telemetr
 
 ## Further development
 
-The incident notification extension is now implemented locally and available as an opt-in standalone monitor feature. Cloud integration remains a separate operating decision: it requires a private queue store, secret configuration, serialized processing, and observed delivery verification. Lambda continues to run its existing telemetry-only path. An independent monitor-heartbeat alert also remains outside this feature.
+The single-operator application has a defined 1.0 workflow and a separate easy demonstration. The portfolio links its run instructions and guide while retaining the original lab screenshots and evidence. Cloud integration remains a separate operating decision: Lambda continues to run its existing telemetry-only path. An independent monitor-heartbeat alert also remains outside this release.
 
-Authentication and real operational deployment are larger project decisions. They should be implemented when their user, storage, and operating requirements are defined. The current work can be presented as functioning, tested demonstrations with explicit scope.
+Teams and Internet-facing accounts should follow defined user and operating requirements. They are not required for this private monitoring app. Present it as a tested application with a bounded scope and controlled local verification, without claiming customer adoption or cloud uptime.

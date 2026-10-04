@@ -229,19 +229,20 @@
                 Know when a service fails.<br />And when the signal stops.
               </h3>
               <p class="project-intro">
-                HTTP monitoring with incident alerts, saved delivery history, and a separate signal for
-                telemetry freshness. Missing observations become unknown, so
-                yesterday’s green status can’t pass for today’s health.
+                A private monitoring workspace: configure services, investigate
+                incidents, inspect delivery retries, and retain the evidence.
+                Missing observations become unknown, so yesterday’s green
+                status can’t pass for today’s health.
               </p>
               <div class="tags">
                 <span>Python</span><span>Concurrent HTTP checks</span
-                ><span>GitHub Actions</span><span>Terraform</span>
+                ><span>SQLite</span><span>GitHub Actions</span>
               </div>
               <div class="project-links">
                 <a
                   class="button dark"
-                  href="https://github.com/SoleVagabond/sentinel-node#try-it-locally"
-                  >Run the incident lab <span aria-hidden="true">↗</span></a
+                  href="https://github.com/SoleVagabond/sentinel-node#run-your-own-workspace"
+                  >Run Sentinel <span aria-hidden="true">↗</span></a
                 ><a
                   class="text-link"
                   href="https://github.com/SoleVagabond/sentinel-node"
@@ -249,9 +250,9 @@
                 >
               </div>
               <p class="scope">
-                Self-directed project · Verified local incident lab. AWS
-                deployment configuration is prepared; live AWS operation remains
-                unverified.
+                Self-directed project · A working single-operator app for your
+                computer or server, with a separate local demo. Live AWS
+                operation remains unverified.
               </p>
             </div>
             <div class="gallery" data-gallery>
@@ -295,8 +296,8 @@
             <div>
               <span class="small-label">The workflow</span>
               <p>
-                Check → detect → queue → notify → recover. Keep service health separate
-                from reporting freshness.
+                Configure → check → investigate → recover → export.
+                Saved notes and delivery attempts survive a restart.
               </p>
             </div>
             <div>
@@ -309,8 +310,8 @@
             <div>
               <span class="small-label">The evidence</span>
               <p>
-                99 checks across incident delivery, application behavior, browser flows,
-                freshness handling, and infrastructure configuration.
+                137 checks across service setup, incident response, retries,
+                restart persistence, backups, browser flows, and infrastructure.
               </p>
               <a
                 class="text-link"
@@ -321,27 +322,28 @@
           </div>
           <details class="project-details">
             <summary>
-              Inside the incident lab <span aria-hidden="true">+</span>
+              Inside the application <span aria-hidden="true">+</span>
             </summary>
             <div class="sentinel-detail">
               <div>
                 <h4>Recovery doesn’t erase the outage.</h4>
                 <p>
-                  The local lab controls real HTTP fixtures: healthy responses,
-                  a slow service, an HTTP 503, and recovery. Aging an
-                  observation demonstrates a stale reporting signal separately.
-                  Resolved incidents remain in the timeline. A local notification receiver
-                  demonstrates failed delivery, saved retries, and a lost reply after acceptance.
+                  Add and edit services, pause checks, and investigate failures.
+                  Acknowledgement records your response; a healthy check
+                  confirms recovery. Incident notes remain. Failed webhook
+                  delivery has a separate journal and deliberate retry action.
+                  The demo exercises the same application against loopback services.
                 </p>
               </div>
               <div>
                 <h4>Repeatable, with clear limits.</h4>
                 <p>
-                  The recorded sequence and automated checks let someone
-                  reproduce the behavior. Terraform describes a private S3
-                  origin, CloudFront delivery, and a scheduled monitoring
-                  function. That cloud configuration has been checked, but
-                  hasn’t been verified in a live AWS deployment.
+                  The portable Python app retains configuration and history in
+                  SQLite, exports observations, and restores database backups
+                  with monitoring paused for inspection. Administration stays
+                  on loopback. The screenshots show the original incident lab;
+                  the quick browser replay uses its recorded evidence. The
+                  separate AWS path remains unverified in live operation.
                 </p>
               </div>
             </div>
@@ -355,6 +357,7 @@
                 href="https://github.com/SoleVagabond/sentinel-node/blob/main/docs/evidence/local-incident-sequence.json"
                 >See the recorded sequence ↗</a
               ><a class="text-link" href="lab.html#sentinel/recovered/0">See notification delivery evidence ↗</a>
+              <a class="text-link" href="https://github.com/SoleVagabond/sentinel-node/blob/main/docs/application.md">Read the application guide ↗</a>
             </div>
           </details>
         </article>

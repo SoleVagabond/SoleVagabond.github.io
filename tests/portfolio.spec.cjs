@@ -16,10 +16,10 @@ test("work, contact and source links lead to the actual projects", async ({
     page.getByRole("link", { name: "Try the application" }),
   ).toHaveAttribute("href", "https://northline-cycle-devin.netlify.app/");
   await expect(
-    page.getByRole("link", { name: "Run the incident lab" }),
+    page.getByRole("link", { name: "Run Sentinel" }),
   ).toHaveAttribute(
     "href",
-    "https://github.com/SoleVagabond/sentinel-node#try-it-locally",
+    "https://github.com/SoleVagabond/sentinel-node#run-your-own-workspace",
   );
   await page
     .getByRole("link", { name: "Contact", exact: false })

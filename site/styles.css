@@ -174,7 +174,7 @@ h1 span {
   border: 1px solid #c7d0c0;
   padding: 28px;
   border-radius: 3px;
-  transform: rotate(-1.5deg);
+  transform: none;
 }
 .note-top {
   display: flex;
@@ -665,3 +665,4 @@ footer {
     scroll-behavior: auto;
   }
 }
+

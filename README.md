@@ -2,11 +2,11 @@
 
 A personal portfolio for web applications, automation, and systems.
 
-[Project review and verification boundaries](docs/project-review.md) explains the strengths, recent corrections, and remaining development work across the two applications and this portfolio.
+[Project review and verification boundaries](docs/project-review.md) explains the strengths, recent corrections, and remaining development work across the applications and this portfolio.
 
 [Live portfolio](https://solevagabond.github.io/) · [Northline Cycle](https://github.com/SoleVagabond/northline-cycle) · [SentinelNode](https://github.com/SoleVagabond/sentinel-node)
 
-The original static site uses semantic HTML, responsive CSS, and a small progressively enhanced screenshot gallery. Native project disclosures, navigation and evidence links work without JavaScript. All featured screenshots come from the actual project applications. The two featured projects are self-directed work; Northline is a fictional workshop and Sentinel’s live AWS operation remains unverified.
+The original static site uses semantic HTML, responsive CSS, and a small progressively enhanced screenshot gallery. Native project disclosures, navigation and evidence links work without JavaScript. All featured screenshots come from the actual project applications. The featured projects are self-directed work; Northline is a fictional workshop and Sentinel’s live AWS operation remains unverified.
 
 ## Interactive systems lab
 
@@ -27,3 +27,7 @@ Node.js 22 and Python 3.13 are the development baseline. Run `npm ci`, `npx play
 The browser suite checks project links, image loading, all three gallery states, disclosures, keyboard navigation, narrow-screen overflow, and automated accessibility rules. It runs at 1280, 375 and 320 pixel widths and saves screenshots and reports under `work/`. Automated scans are a useful check, not a full accessibility certification.
 
 GitHub Actions runs those checks before publishing `site/` to GitHub Pages. Failed checks prevent deployment. Only the static public assets are deployed; there is no contact form or tracking service.
+
+## Job discovery case study
+
+`site/job-discovery.html` describes the real ingestion application, persistent member workspaces and engineering decisions. Its dated clean-install evidence distinguishes passing product checks from the unresolved dependency audit and pending public hosting. Screenshots are captured from an isolated running copy with fictional evaluation data; they contain no private member information. The working product name remains provisional. Source access is currently private.

@@ -1,6 +1,14 @@
 # Project review
 
-This review looks at the two applications and the portfolio as a connected body of self-directed work. It distinguishes working behavior from configuration and from remaining operational proof.
+This review looks at the applications and the portfolio as a connected body of self-directed work. It distinguishes working behavior from configuration and from remaining operational proof.
+
+## Job discovery and application workspace
+
+Added October 17, 2026: a full-stack nationwide job-discovery application with real multi-source ingestion, persistent member workspaces, editable saved searches, job comparison, application tracking and resumable employer-feed imports. The new portfolio case study explains the product and the technical decisions behind its reliability and data quality.
+
+A clean local installation passed 690 regression tests in 132 suites, five source-safety checks, lint, the production build and static deployment checks. Selected browser save/search/tracker journeys retained their state after reload. The new screenshots were captured from a running isolated copy with fictional evaluation data and no private member records.
+
+The application source remains private and is under review. The dependency audit has unresolved upstream advisories, and public hosting and real email delivery remain pending. The public case study does not link to private pull requests, publish credentials, or claim a live public service. Automated portfolio accessibility and navigation checks run separately in the portfolio workflow.
 
 ## Northline Cycle
 

@@ -15,7 +15,7 @@
     />
     <meta
       property="og:description"
-      content="Explore Northline Cycle and SentinelNode: the workflow, the decisions, and the evidence."
+      content="Explore a nationwide job discovery application, Northline Cycle and SentinelNode: workflows, decisions, and evidence."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://solevagabond.github.io/" />
@@ -23,6 +23,7 @@
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="lab.css" />
+    <link rel="stylesheet" href="job-discovery.css" />
     <script src="gallery.js" defer></script>
   </head>
   <body>
@@ -64,24 +65,13 @@
             ><span aria-hidden="true">↗</span>
           </div>
           <ol class="flow-preview">
-            <li>
-              <span class="flow-number">01</span>
-              <div>
-                <strong>A request becomes a repair.</strong>
-                <p>Northline Cycle / Web workflow</p>
-              </div>
-            </li>
-            <li>
-              <span class="flow-number">02</span>
-              <div>
-                <strong>A lost signal becomes visible.</strong>
-                <p>SentinelNode / Service monitoring</p>
-              </div>
-            </li>
+            <li><span class="flow-number">01</span><div><strong>A search becomes a next step.</strong><p>Job discovery / Full-stack workspace</p></div></li>
+            <li><span class="flow-number">02</span><div><strong>A request becomes a repair.</strong><p>Northline Cycle / Web workflow</p></div></li>
+            <li><span class="flow-number">03</span><div><strong>A lost signal becomes visible.</strong><p>SentinelNode / Service monitoring</p></div></li>
           </ol>
           <p class="note-bottom">
-            Two self-directed projects. Follow the details, try the workflow,
-            read the source.
+            Three self-directed projects. Follow the workflows, inspect the evidence,
+            and explore the engineering decisions.
           </p>
         </aside>
       </section>
@@ -91,9 +81,27 @@
           <h2 id="work-title">The idea is only the start.</h2>
           <p>Here’s how the pieces work together.</p>
         </div>
+        <article class="project job-discovery-project" aria-labelledby="job-discovery-title">
+          <div class="project-bar"><span>01 — Job discovery &amp; application workspace</span><span class="pill">Full-stack application</span></div>
+          <div class="project-grid">
+            <div class="project-copy">
+              <h3 id="job-discovery-title">Find the opportunity.<br />Keep the next step.</h3>
+              <p class="project-intro">A nationwide US job-discovery app with real source ingestion and persistent member workspaces. Search, save, compare and keep application progress together.</p>
+              <div class="tags"><span>Next.js</span><span>Node.js</span><span>SQLite</span><span>Redis</span><span>Data pipelines</span></div>
+              <div class="project-links"><a class="button dark" href="job-discovery.html">Explore the job-board case study <span aria-hidden="true">↗</span></a></div>
+              <p class="scope">Self-directed application · Locally verified · Private source · Public hosting pending.</p>
+            </div>
+            <figure class="project-visual job-discovery-visual"><a href="job-discovery.html" aria-label="View the job discovery case study"><img src="assets/job-discovery-search.png" width="1264" height="712" loading="lazy" alt="The job-discovery application's remote search with support keywords and pay filters." /></a><figcaption>Actual application / Fictional evaluation data, isolated from the real inventory.</figcaption></figure>
+          </div>
+          <div class="project-facts">
+            <div><span class="small-label">The workflow</span><p>Discover → save or compare → track → return to your workspace.</p></div>
+            <div><span class="small-label">The decision</span><p>Build source-quality and ingestion controls alongside the job seeker's experience, with durable checkpoints and private account data.</p></div>
+            <div><span class="small-label">The evidence</span><p>October 17 clean-install verification: 690 regression tests, a production build and selected browser-persistence checks. The case study records the remaining release work.</p><a class="text-link" href="job-discovery.html#verification">Review verification &amp; status ↗</a></div>
+          </div>
+        </article>
         <article class="project" aria-labelledby="northline-title">
           <div class="project-bar">
-            <span>01 — Northline Cycle</span
+            <span>02 — Northline Cycle</span
             ><span class="pill">Web application</span>
           </div>
           <div class="project-grid">
@@ -220,7 +228,7 @@
           aria-labelledby="sentinel-title"
         >
           <div class="project-bar">
-            <span>02 — SentinelNode</span
+            <span>03 — SentinelNode</span
             ><span class="pill">Monitoring & automation</span>
           </div>
           <div class="project-grid">

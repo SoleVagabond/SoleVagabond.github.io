@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Job discovery & application workspace — Devin</title>
+    <meta name="description" content="A full-stack job discovery application: real source ingestion, persistent member workspaces, saved searches, application tracking, and the engineering behind them." />
+    <meta name="theme-color" content="#f3f1e9" />
+    <link rel="canonical" href="https://solevagabond.github.io/job-discovery.html" />
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="job-discovery.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="index.html" aria-label="Devin, home"><span class="mark" aria-hidden="true">d.</span>Devin</a>
+      <nav aria-label="Main navigation"><a href="index.html#work">Work</a><a href="lab.html">Lab</a><a href="index.html#contact">Contact ↗</a></nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="case-intro wrap" aria-labelledby="case-title">
+        <p class="eyebrow">Case study / Full-stack application</p>
+        <h1 id="case-title">Find the opportunity.<br /><span>Keep the next step.</span></h1>
+        <div class="case-intro-grid">
+          <p class="case-lead">A nationwide US job-discovery and application workspace. Real listings from multiple sources, useful search, and personal progress that survives the next visit.</p>
+          <div><p class="small-label">Project at a glance</p><p>Next.js · Node.js · SQLite · Redis<br />Independent project · Active development</p><p class="case-status">Locally verified application. Public hosting is pending; source is currently private. The product name is provisional.</p></div>
+        </div>
+        <nav class="case-jump" aria-label="Case study sections"><a href="#workflow">The workflow ↓</a><a href="#engineering">Engineering decisions ↓</a><a href="#verification">Verification ↓</a></nav>
+      </section>
+
+      <figure class="case-cover wrap">
+        <a href="assets/job-discovery-search.png" aria-label="Open full job search screenshot"><img src="assets/job-discovery-search.png" width="1264" height="712" alt="The application's remote search with support keywords, annual pay filters and two matching sample roles." fetchpriority="high" /></a>
+        <figcaption>Actual application / Isolated evaluation data. Screenshots use fictional roles and contain no private member information.</figcaption>
+      </figure>
+
+      <section class="case-section case-problem wrap" aria-labelledby="problem-title">
+        <div><p class="eyebrow">The problem</p><h2 id="problem-title">A listing is only<br />the beginning.</h2></div>
+        <div><p>Job information arrives with different formats, duplicate vacancies, uncertain pay and stale application links. Once a person finds a role, they still need to remember the search, compare it with other options and keep their next action organized.</p><p>I built the collection and quality pipeline alongside the job seeker's workspace, so the product can explain its results and carry useful work forward.</p></div>
+      </section>
+
+      <section id="workflow" class="case-section wrap" aria-labelledby="workflow-title">
+        <div class="case-section-heading"><p class="eyebrow">01 / From discovery to follow-through</p><h2 id="workflow-title">One search.<br />A connected workspace.</h2></div>
+        <ol class="case-flow">
+          <li><span class="small-label">01 / Discover</span><h3>Search on your terms.</h3><p>Keywords, US geography, ZIP and radius, remote work, pay, occupation, source and experience filters.</p></li>
+          <li><span class="small-label">02 / Keep</span><h3>Save the useful parts.</h3><p>Save a job, compare opportunities, or preserve a complete search with editable filters.</p></li>
+          <li><span class="small-label">03 / Act</span><h3>Make the next step visible.</h3><p>Track application stages, follow-ups, interview plans, document versions and notes.</p></li>
+          <li><span class="small-label">04 / Return</span><h3>Pick up your work.</h3><p>Persistent accounts bring guest activity into a private workspace, with session controls, recovery and export.</p></li>
+        </ol>
+        <div class="case-screen-pair">
+          <figure><a href="assets/job-discovery-saved-searches.png" aria-label="Open full saved searches screenshot"><img src="assets/job-discovery-saved-searches.png" width="1280" height="720" loading="lazy" alt="A saved Remote support roles search retaining remote-only, minimum annual pay and sort settings." /></a><figcaption>Saved searches / The verified filter settings remain after reload.</figcaption></figure>
+          <figure><a href="assets/job-discovery-tracker.png" aria-label="Open full application tracker screenshot"><img src="assets/job-discovery-tracker.png" width="1264" height="1275" loading="lazy" alt="A sample role in the Preparing stage with an editable next action, interview dates and application notes." /></a><figcaption>Application tracker / A persisted stage and next action, using a fictional role.</figcaption></figure>
+        </div>
+        <div class="case-account-row"><div><h3>A workspace belongs to its user.</h3><p>Username/password accounts, guest-data migration, hashed recovery and session credentials, device revocation, workspace export and account deletion are implemented. Account data is kept separate from public search results.</p></div><figure><a href="assets/job-discovery-account.png" aria-label="Open full account screen screenshot"><img src="assets/job-discovery-account.png" width="1280" height="720" loading="lazy" alt="The account entry screen, with blank username and password fields and sign-in and recovery options." /></a><figcaption>Account entry / No personal credentials are shown.</figcaption></figure></div>
+      </section>
+
+      <section id="engineering" class="case-section wrap" aria-labelledby="engineering-title">
+        <div class="case-section-heading"><p class="eyebrow">02 / Behind the interface</p><h2 id="engineering-title">The difficult part<br />is keeping it dependable.</h2></div>
+        <ol class="case-architecture" aria-label="Application data flow">
+          <li><strong>Collect</strong><span>Employer feeds &amp; provider integrations</span></li><li><strong>Normalize</strong><span>Transactional SQLite inventory &amp; quality rules</span></li><li><strong>Find</strong><span>Bounded search workers &amp; filtered results</span></li><li><strong>Keep</strong><span>Private account workspaces</span></li>
+        </ol>
+        <div class="case-decisions">
+          <article><span class="small-label">Ingestion reliability</span><h3>Resume the work.<br />Don't skip a page.</h3><p>Workday, Oracle Cloud and Lever imports use durable checkpoints. A successful page commits its postings and continuation together; a failed write cannot advance past unfinished work.</p><p>Changing offset feeds need care: a resumed scan does not automatically retire unseen jobs, because their position may have shifted.</p></article>
+          <article><span class="small-label">Data integrity</span><h3>Keep the dates<br />honest.</h3><p>The original posting date, last observation at the source and application-link verification are different facts. The interface keeps them distinct rather than making a refreshed old listing look newly posted.</p><p>Source attribution, deduplication, occupation matching and pay provenance support more useful results.</p></article>
+          <article><span class="small-label">Execution &amp; operations</span><h3>Give background work<br />its own boundaries.</h3><p>Ingestion runs separately from the web process. Redis coordinates budgets and queues; a bounded worker pool moves search computation off the request thread.</p><p>The current SQLite architecture is designed for one durable host. Backup tools and deployment checks are implemented; distributed hosting is not claimed.</p></article>
+          <article><span class="small-label">Personal work</span><h3>A failed request<br />shouldn't erase a draft.</h3><p>Saved-search edits preserve unknown filter fields and retain drafts after failed saves. Account changes clear workspace-related browser caches.</p><p>Passwords use salted asynchronous scrypt, while session and recovery credentials are stored as hashes.</p></article>
+        </div>
+      </section>
+
+      <section id="verification" class="case-section wrap" aria-labelledby="verification-title">
+        <div class="case-section-heading"><p class="eyebrow">03 / Evidence &amp; current status</p><h2 id="verification-title">Verified behavior.<br />Clear next work.</h2></div>
+        <dl class="case-proof"><div><dt>690</dt><dd>Passing regression tests<br />in 132 suites</dd></div><div><dt>Clean install</dt><dd>Lockfile install, lint<br />and production build passed</dd></div><div><dt>Reloaded</dt><dd>Saved search, tracker stage<br />and next action retained</dd></div></dl>
+        <div class="case-status-grid"><div><h3>What was checked</h3><p>October 17, 2026: an isolated source copy passed the full regression suite, five source-safety checks, build and static deployment checks. Browser verification covered selected save, tracker and saved-search journeys, with mobile checks at 390px.</p><p>Earlier real-feed verification on October 15 refreshed two consecutive pages of 100 existing Lever postings in separate processes, advancing a saved checkpoint from 0 to 100 to 200.</p></div><div><h3>What remains</h3><p>The dependency audit has unresolved upstream advisories. Public hosting, sustained inventory freshness, a deployment restore and real email delivery still need operational verification. No public traffic or uptime claim is made.</p><p>These screenshots show the working interface with isolated sample data. The real ingestion application and its original inventory are retained separately. Private source access can be discussed directly.</p><a class="text-link" href="index.html#contact">Discuss the project ↗</a></div></div>
+      </section>
+      <section class="case-end wrap"><p class="eyebrow">Continue exploring</p><h2>The interface and<br />the work behind it.</h2><div class="project-links"><a class="button dark" href="index.html#work">Back to selected work ↗</a><a class="text-link" href="lab.html">Explore the systems lab ↗</a></div></section>
+    </main>
+    <footer class="wrap"><span>Devin · Web applications, automation &amp; systems</span><a href="index.html#contact">Get in touch ↗</a></footer>
+  </body>
+</html>

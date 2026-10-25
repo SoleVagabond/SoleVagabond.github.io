@@ -10,6 +10,8 @@ A clean local installation passed 690 regression tests in 132 suites, five sourc
 
 The application source remains private and is under review. The dependency audit has unresolved upstream advisories, and public hosting and real email delivery remain pending. The public case study does not link to private pull requests, publish credentials, or claim a live public service. Automated portfolio accessibility and navigation checks run separately in the portfolio workflow.
 
+Updated October 24 with the later recorded verification: the October 19 application CI passed 705 tests in 133 suites on Node.js 22 and 24, plus source-safety, lint, conversion and backup/restore checks. Its dependency audit still blocks the dependent CI build; the local production build passed separately. These are dated application results, not a new full application test run on October 24. The public case study now explains the structured-geography repair (202 records across six employers) and the measured full-text query-plan correction, with their scope and limits. Earlier screenshots and browser checks keep their original October 17 provenance. Private source access is not offered through the case study; selected product evidence is public while configuration, inventory and member records remain private.
+
 ## Northline Cycle
 
 The strongest part is the complete request-to-collection workflow: a server-calculated estimate, saved repair, customer approval, seven stages, and a retained journal. Separate visitor workspaces, retry references, and storage-version checks give the workflow substance beyond the interface.

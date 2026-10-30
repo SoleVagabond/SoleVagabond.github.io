@@ -10,7 +10,7 @@ test("work, contact and source links lead to the actual projects", async ({
   await expect(page).toHaveTitle(
     "Devin — Web applications, automation & systems",
   );
-  await page.getByRole("link", { name: "Explore the work" }).click();
+  await page.getByRole("link", { name: "Explore the work", exact: true }).click();
   await expect(page).toHaveURL(/#work$/);
   await expect(
     page.getByRole("link", { name: "Try the application" }),

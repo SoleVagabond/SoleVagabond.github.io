@@ -30,4 +30,8 @@ GitHub Actions runs those checks before publishing `site/` to GitHub Pages. Fail
 
 ## Job discovery case study
 
-`site/job-discovery.html` describes the real ingestion application, persistent member workspaces and engineering decisions. Its dated clean-install evidence distinguishes passing product checks from the unresolved dependency audit and pending public hosting. Screenshots are captured from an isolated running copy with fictional evaluation data; they contain no private member information. The working product name remains provisional. Source access is currently private.
+`site/job-discovery.html` describes the real ingestion application, persistent member workspaces and engineering decisions. Its October 30 evidence separates passing build, audit and product checks from pending public hosting and operational proof. Screenshots are captured from an isolated running copy with fictional evaluation data; they contain no private member information. The working product name remains provisional. Source access is currently private.
+
+## Experience and service presentation
+
+The homepage leads with business applications, API integrations/automation and customer-facing websites. Northline, SentinelNode and job discovery demonstrate different capabilities. Additional StreamEasy and 21 West summaries broaden the presentation while private implementation stays private. `site/profile.html` is a printable experience/project profile based on supplied facts, without invented credentials, job titles or employment dates. JavaScript only enables its print shortcut; the profile remains readable without it.

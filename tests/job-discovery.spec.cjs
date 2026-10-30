@@ -12,7 +12,7 @@ test('job-discovery case study has a usable route, real assets and honest access
   }
   await page.getByRole('link', { name: 'Verification ↓', exact: true }).click();
   await expect(page).toHaveURL(/#verification$/);
-  await expect(page.getByText('The dependency audit has unresolved upstream advisories.', { exact: false })).toBeVisible();
+  await expect(page.getByText('Public hosting, sustained inventory freshness, off-host recovery and real email delivery', { exact: false })).toBeVisible();
   expect(await page.locator('a[href*="127.0.0.1"],a[href*="mini-job-board/pull"],a[href^="file:"]').count()).toBe(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   await expect(page.locator('body')).toContainText('fictional roles');

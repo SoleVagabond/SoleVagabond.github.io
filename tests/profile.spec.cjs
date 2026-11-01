@@ -11,6 +11,13 @@ test('client and experience paths are usable and the profile remains accessible'
  await expect(page.getByRole('heading',{level:1,name:'Devin',exact:true})).toBeVisible();
  await expect(page.getByRole('button',{name:'Print or save this profile',exact:true})).toBeVisible();
  expect((await request.get('/profile.js')).status()).toBe(200);
+ const resume=await request.get('/assets/devin-crockrel-resume.pdf');
+ expect(resume.status()).toBe(200);
+ expect(resume.headers()['content-type']).toContain('application/pdf');
+ expect((await resume.body()).subarray(0,5).toString()).toBe('%PDF-');
+ await expect(page.getByRole('link',{name:'Download résumé (PDF, 2 pages) ↓',exact:true})).toHaveAttribute('download','');
+ await expect(page.getByRole('heading',{name:'Inkjet Express — our family business',exact:true})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Systems & self-hosting',exact:true})).toBeVisible();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth)).toBe(true);
  expect(await page.locator('a[href*="127.0.0.1"],a[href*="mini-job-board/pull"],a[href^="file:"]').count()).toBe(0);
  const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();

@@ -13,8 +13,8 @@ test("work, contact and source links lead to the actual projects", async ({
   await page.getByRole("link", { name: "Explore the work", exact: true }).click();
   await expect(page).toHaveURL(/#work$/);
   await expect(
-    page.getByRole("link", { name: "Try the application" }),
-  ).toHaveAttribute("href", "https://northline-cycle-devin.netlify.app/");
+    page.getByRole("link", { name: "Try the workshop demo" }),
+  ).toHaveAttribute("href", "https://northline-cycle-devin.netlify.app/demo/workshop.html#repair/NL-2401");
   await expect(
     page.getByRole("link", { name: "Run Sentinel" }),
   ).toHaveAttribute(

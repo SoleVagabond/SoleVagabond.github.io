@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project walkthroughs — Devin</title>
+    <meta name="description" content="Follow three software projects: my contribution, the decisions behind each application, and a short route through the working examples and recorded evidence." />
+    <meta name="theme-color" content="#f3f1e9" />
+    <link rel="canonical" href="https://solevagabond.github.io/project-tour.html" />
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="project-tour.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="index.html" aria-label="Devin, home"><span class="mark" aria-hidden="true">d.</span>Devin</a>
+      <nav aria-label="Main navigation"><a href="index.html#work">Work</a><a href="lab.html">Lab</a><a href="index.html#contact">Contact ↗</a></nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="tour-intro wrap" aria-labelledby="tour-title">
+        <p class="eyebrow">Selected work / A guided look</p>
+        <h1 id="tour-title">See what I built.<br />Follow it through.</h1>
+        <p>Pick the kind of problem you need help with. Each walkthrough explains my contribution, a decision behind the work and what to look for in the example. These are self-directed projects.</p>
+        <nav class="tour-nav" aria-label="Choose a project walkthrough">
+          <a href="#northline"><strong>01 / Business workflows</strong><span>Northline · Customer approval to workshop action</span></a>
+          <a href="#sentinel"><strong>02 / Monitoring &amp; recovery</strong><span>SentinelNode · Failure, missing signal and recovery</span></a>
+          <a href="#job-discovery"><strong>03 / APIs &amp; data</strong><span>Job Discovery · Source records to a saved workspace</span></a>
+        </nav>
+      </section>
+
+      <section id="northline" class="tour-section wrap" aria-labelledby="northline-tour-title">
+        <p class="eyebrow">01 / Northline · Live visitor demo</p>
+        <h2 id="northline-tour-title">An approved estimate should mean<br />the work the customer agreed to.</h2>
+        <div class="tour-summary">
+          <p><strong>My contribution.</strong> I built the public customer website, staff workflow, persistent API and separate demo. The application connects intake, itemized estimates, customer decisions, parts, scheduling and repair history.</p>
+          <div><p><strong>A decision I made.</strong> Approval belongs to an estimate version. Changing the price or work requires a fresh decision; an old approval cannot authorize a different repair.</p><p><strong>Why it matters.</strong> Staff can revise findings without losing the agreement or confusing the customer about the amount they approved.</p></div>
+        </div>
+        <div class="tour-body">
+          <figure><a href="assets/northline-tracker.jpg" aria-label="Open the Northline repair tracker screenshot"><img src="assets/northline-tracker.jpg" width="1265" height="889" alt="Northline customer repair tracker with repair progress, an estimate and a journal." loading="lazy" /></a><figcaption>Customer repair tracker. The live demo also provides the staff view. The images show a recorded interface checkpoint.</figcaption></figure>
+          <div>
+            <ol class="tour-steps">
+              <li><h3>Open a sample repair.</h3><p>The demo link opens City commuter (NL-2401). In a fresh workspace it is waiting for approval. Read the current estimate and repair journal.</p></li>
+              <li><h3>Compare the customer and staff views.</h3><p>Choose <strong>Customer view</strong> to inspect what the rider sees. In the staff view, find <strong>Revise the estimate</strong> and <strong>Estimate history</strong>. Follow the version and decision status through a change.</p></li>
+              <li><h3>Look at the next operational step.</h3><p>Review <strong>Schedule &amp; assignment</strong>, then <strong>Parts &amp; stock</strong>. Work dates and stock are separate decisions from customer approval. Reload to check that your saved changes remain.</p></li>
+            </ol>
+            <p class="tour-note">Fictional workshop and sample customers. Demo changes stay in your visitor workspace. If you have used it before, the sample may already be at a later stage. The private staff workspace is separate.</p>
+          </div>
+        </div>
+        <div class="tour-links"><a class="button dark" href="https://northline-cycle-devin.netlify.app/demo/workshop.html#repair/NL-2401">Open the sample repair ↗</a><a class="text-link" href="https://github.com/SoleVagabond/northline-cycle/tree/main/qa">Review workflow checks ↗</a><a class="text-link" href="https://northline-cycle-devin.netlify.app/case-study.html">Read the full project story ↗</a></div>
+      </section>
+
+      <section id="sentinel" class="tour-section wrap" aria-labelledby="sentinel-tour-title">
+        <p class="eyebrow">02 / SentinelNode · Recorded browser replay + runnable app</p>
+        <h2 id="sentinel-tour-title">A missing monitoring signal<br />is a different problem from a failed service.</h2>
+        <div class="tour-summary">
+          <p><strong>My contribution.</strong> I built a Python and SQLite application for service checks, incident investigation, notes and notification retries, with saved history and backup/restore tools.</p>
+          <div><p><strong>A decision I made.</strong> An old healthy observation must not keep presenting a service as healthy. The interface marks stale observations as unknown and keeps the last incident context.</p><p><strong>Why it matters.</strong> Someone investigating a failure can tell whether the service failed, the monitoring signal stopped or an alert failed to arrive.</p></div>
+        </div>
+        <div class="tour-body">
+          <figure><a href="assets/sentinel-outage.png" aria-label="Open the Sentinel incident screenshot"><img src="assets/sentinel-outage.png" width="1265" height="712" alt="Sentinel's incident lab showing a service outage and retained incident details." loading="lazy" /></a><figcaption>Recorded incident lab. The browser replay presents saved observations; the downloadable application performs real checks.</figcaption></figure>
+          <div>
+            <ol class="tour-steps">
+              <li><h3>Start with the outage.</h3><p>Open the replay at the recorded outage. Notice the service failure and active incident.</p></li>
+              <li><h3>Replay lost signal.</h3><p>Choose <strong>Replay lost signal</strong>. Health becomes unknown when observations stop being trustworthy. The interface retains what was last observed.</p></li>
+              <li><h3>Replay recovery.</h3><p>Choose <strong>Replay recovery</strong>. Compare the recovered state with the retained incident history. Notification evidence below the replay shows delivery attempts separately.</p></li>
+            </ol>
+            <p class="tour-note">No installation is needed for the recording. It does not run live checks or send alerts. The separate single-operator application runs on a computer or server; live AWS operation remains unverified.</p>
+          </div>
+        </div>
+        <div class="tour-links"><a class="button dark" href="lab.html#sentinel/outage/0">Open the incident replay ↗</a><a class="text-link" href="https://github.com/SoleVagabond/sentinel-node/releases/tag/v1.0.0">Download the working application ↗</a><a class="text-link" href="https://github.com/SoleVagabond/sentinel-node/blob/main/docs/validation.md">Review validation notes ↗</a></div>
+      </section>
+
+      <section id="job-discovery" class="tour-section wrap" aria-labelledby="job-tour-title">
+        <p class="eyebrow">03 / Job Discovery · Illustrated case study</p>
+        <h2 id="job-tour-title">Collecting a listing is one job.<br />Keeping someone's progress is another.</h2>
+        <div class="tour-summary">
+          <p><strong>My contribution.</strong> I built both the employer-source collection pipeline and the Next.js application for searching, comparing, saving and tracking opportunities, backed by SQLite and private account workspaces.</p>
+          <div><p><strong>A decision I made.</strong> Commit an imported page and its continuation together. If saving fails, the import must not move past unfinished work. Keep posting dates separate from later observations.</p><p><strong>Why it matters.</strong> An interrupted refresh can resume without skipping records, and an old vacancy does not become “new” simply because it was checked again.</p></div>
+        </div>
+        <div class="tour-body">
+          <figure><a href="assets/job-discovery-tracker.png" aria-label="Open the Job Discovery tracker screenshot"><img src="assets/job-discovery-tracker.png" width="1264" height="1275" alt="Job application tracker with a sample opportunity, stage, next action and notes." loading="lazy" /></a><figcaption>Actual application interface with a fictional role in an isolated evaluation copy. This screenshot is not an interactive job search.</figcaption></figure>
+          <div>
+            <ol class="tour-steps">
+              <li><h3>Follow the job seeker's workflow.</h3><p>Open the case study's <strong>The workflow</strong> section. Follow search settings into saved searches and the application tracker screenshots.</p></li>
+              <li><h3>Look behind the results.</h3><p>Read <strong>Engineering decisions</strong> for duplicate handling, resumable imports, date provenance and geographic eligibility. These affect whether search results are useful.</p></li>
+              <li><h3>Check the evidence and limits.</h3><p>Read the dated verification record. It separates automated checks, browser observations and real imports from operational work that still needs verification.</p></li>
+            </ol>
+            <p class="tour-note">The application has been operated locally. Public application hosting is pending; the source and member records remain private. The public case study contains selected screenshots and dated findings.</p>
+          </div>
+        </div>
+        <div class="tour-links"><a class="button dark" href="job-discovery.html#workflow">Follow the workspace case study ↗</a><a class="text-link" href="job-discovery.html#engineering">Read the engineering decisions ↗</a><a class="text-link" href="job-discovery.html#verification">Review dated verification ↗</a></div>
+      </section>
+      <section class="tour-end wrap" aria-labelledby="tour-end-title"><h2 id="tour-end-title">Have a workflow like this?</h2><p>Tell me what happens today, where it breaks down and what you want to make easier. We can use that to define the first useful piece of work.</p><div class="tour-links"><a class="button dark" href="index.html#contact">Discuss your project ↗</a><a class="text-link" href="index.html#services">See services and delivery ↗</a></div></section>
+    </main>
+    <footer class="wrap"><span>Devin / Web applications, automation &amp; systems</span><a href="index.html">Back to the portfolio ↗</a></footer>
+  </body>
+</html>
